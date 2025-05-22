@@ -23,12 +23,16 @@ import { removeLocalStorage, removeLocalStorageProduct } from "lib/api";
 import { ButtonHamburguesa, ButtonHeader } from "ui/buttons";
 import { useUser } from "@/lib/user-context";
 
+interface UserData {
+  email: string;
+}
+
 export function Layout({ children }) {
   const { email, setQuery, setProduct } = useUser();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [data, setData]: any = useState(null);
+  const [data, setData] = useState<UserData | null>(null);
   useEffect(() => {
-    const user: any = localStorage.getItem("UserData");
+    const user = localStorage.getItem("UserData");
     if (user) {
       setData(JSON.parse(user));
     }

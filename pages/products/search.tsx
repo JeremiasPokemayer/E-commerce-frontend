@@ -1,6 +1,6 @@
 import { ProductId } from "components/products";
 
-export default function () {
+export default function ProductSearch() {
   return (
     <div>
       <ProductId />

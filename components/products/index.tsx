@@ -47,7 +47,7 @@ export function ProductsTop() {
           {data.map((i, index) => {
             return (
               <ContainerProduct key={index}>
-                <Image src={i.Images[0].url} />
+                <Image src={i.Images[0].url} alt="" />
                 <ContainerText>
                   <TextProduct>{i.Name}</TextProduct>
                   <Price>${i["Unit cost"]}</Price>
@@ -91,7 +91,7 @@ export function Products() {
                 key={index}
                 onClick={() => handleProduct(i.objectID)}
               >
-                <Image src={i.Images[0].url} />
+                <Image src={i.Images[0].url} alt="" />
                 <ContainerText2>
                   <TextProduct2>{i.Name}</TextProduct2>
                   <Price>${i["Unit cost"]}</Price>
@@ -134,7 +134,7 @@ export function Products() {
 }
 
 export function ProductId() {
-  const { product, setProduct }: any = useUser();
+  const { product, setProduct } = useUser();
   const router = useRouter();
   const { query, setQuery } = useUser();
 
@@ -171,7 +171,7 @@ export function ProductId() {
           <Title>Encontra lo que estas buscando!</Title>
         ) : (
           <ContainerData>
-            <ImageProduct src={product?.Images?.[0]?.url} />
+            <ImageProduct src={product?.Images?.[0]?.url} alt="" />
             <ContainerText3>
               <TitleProduct>{product?.Name}</TitleProduct>
               <Price>${product?.["Unit cost"]}</Price>

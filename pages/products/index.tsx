@@ -1,6 +1,6 @@
 import { Products } from "components/products";
 
-export default function Home() {
+export default function Product() {
   return (
     <div>
       <Products />

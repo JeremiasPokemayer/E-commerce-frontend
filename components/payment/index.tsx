@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Link from "next/link";
 import { Div, TitlePago, TextPago, ButtonVolver } from "./styled";

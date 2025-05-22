@@ -1,6 +1,6 @@
 import { Perfil } from "components/profile";
 
-export default function Home() {
+export default function Profile() {
   return (
     <div>
       <Perfil />

@@ -11,7 +11,7 @@ export function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const emailForm: any = formData.get("email");
+    const emailForm: string = formData.get("email") as string;
     setEmail(emailForm);
     const data = await sendCode(emailForm);
     console.log(data);
@@ -40,7 +40,7 @@ export function LoginCode() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const codeForm: any = formData.get("code");
+    const codeForm: string = formData.get("code") as string;
     const code = Number(codeForm);
     await getToken(email, code);
     router.push("/");

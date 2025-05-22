@@ -1,9 +1,20 @@
 const BASE_URL =
   "https://e-commerce-backend-jeremiaspokemayers-projects.vercel.app/api";
 
+interface RequestBody {
+  email?: string;
+  username?: string;
+  userId?: string;
+  code?: unknown;
+  lastname?: string;
+  phone?: string;
+  address?: string;
+}
+
 export async function fetchApi(
   input: RequestInfo,
-  options: any = {},
+  options: RequestInit = {},
+  jsonBody?: RequestBody,
   withAuth = true
 ) {
   const url = BASE_URL + input;
@@ -24,8 +35,8 @@ export async function fetchApi(
     };
   }
 
-  if (options.body) {
-    options.body = JSON.stringify(options.body);
+  if (jsonBody) {
+    options.body = JSON.stringify(jsonBody);
   }
 
   console.log("fetchApi -> url:", url);
@@ -40,25 +51,21 @@ export async function fetchApi(
 }
 
 export async function sendCode(email: string) {
-  const data = await fetchApi(
-    "/auth",
-    {
-      method: "POST",
-      body: { email },
-    },
-    false
-  );
+  const data = await fetchApi("/auth", { method: "POST" }, { email }, false);
   return data;
 }
 
 export async function getToken(email: string, code: number) {
-  const data = await fetchApi("/auth/token", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
+  const data = await fetchApi(
+    "/auth/token",
+    {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
     },
-    body: { email, code },
-  });
+    { email, code }
+  );
   saveToken(data.token);
   return true;
 }
@@ -80,13 +87,16 @@ export function useGenerateOrder(id) {
 
 export async function setUserData(userData) {
   const { userId, username, lastname, address, phone } = userData;
-  const data = await fetchApi("/me", {
-    method: "PATCH",
-    headers: {
-      "content-type": "application/json",
+  await fetchApi(
+    "/me",
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
     },
-    body: { userId, username, lastname, address, phone },
-  });
+    { userId, username, lastname, address, phone }
+  );
   return true;
 }
 

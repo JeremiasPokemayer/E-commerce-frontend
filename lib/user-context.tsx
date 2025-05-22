@@ -9,6 +9,14 @@ interface User {
   phone?: string;
 }
 
+interface Product {
+  objectID?: string;
+  Images?: unknown;
+  Name?: string;
+  Description?: string;
+  url?: unknown;
+}
+
 interface UserContextType {
   email: string;
   setEmail: React.Dispatch<React.SetStateAction<string>>;
@@ -18,8 +26,8 @@ interface UserContextType {
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  product: {} | null;
-  setProduct: React.Dispatch<React.SetStateAction<{} | null>>;
+  product: Product | null;
+  setProduct: React.Dispatch<React.SetStateAction<object | null>>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -29,7 +37,7 @@ export default function UserProvider({ children }) {
   const [query, setQuery] = useState("");
   const [code, setCode] = useState("");
   const [user, setUser] = useState<User | null>(null);
-  const [product, setProduct] = useState<{} | null>(null);
+  const [product, setProduct] = useState<object | null>(null);
 
   return (
     <UserContext.Provider

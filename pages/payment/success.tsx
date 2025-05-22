@@ -1,6 +1,6 @@
 import { Success } from "components/payment";
 
-export default function Home() {
+export default function Pass() {
   return (
     <div>
       <Success />
