@@ -1,7 +1,16 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Link from "next/link";
-import { Div, TitlePago, TextPago, ButtonVolver } from "./styled";
+import { CaraTriste } from "ui/icons";
+import {
+  Div,
+  Div2,
+  TitlePago,
+  TitlePago2,
+  TextPago,
+  ButtonVolver,
+  ButtonVolver2,
+} from "./styled";
 
 export function Success() {
   return (
@@ -9,7 +18,7 @@ export function Success() {
       <Player
         autoplay
         keepLastFrame
-        src="https://assets10.lottiefiles.com/packages/lf20_jbrw3hcz.json"
+        src="https://lottie.host/d64392ce-f0d4-4e12-a6e9-d106e7402dfb/ZfnklJOuDU.json"
         style={{ height: "400px", width: "400px" }}
       />
       <TitlePago>¡Pago aprobado!</TitlePago>
@@ -22,5 +31,25 @@ export function Success() {
 }
 
 export function Failure() {
-  return <div>Soy el Failure</div>;
+  return (
+    <Div2>
+      <Player
+        autoplay
+        keepLastFrame
+        src="https://lottie.host/0eda4543-e3d6-4612-a69e-2f40127932b9/O3qMxH9Og2.json"
+        style={{ height: "400px", width: "400px" }}
+      />
+      <TitlePago2>
+        ¡Pago rechazado!
+        <CaraTriste />
+      </TitlePago2>
+      <TextPago>
+        Tu transacción no fue exitosa, podes volver a intentarlo en unos
+        minutos.
+      </TextPago>
+      <Link href={"/"}>
+        <ButtonVolver2>Volver al inicio</ButtonVolver2>
+      </Link>
+    </Div2>
+  );
 }
