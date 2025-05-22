@@ -1,5 +1,5 @@
+import dynamic from "next/dynamic";
 import React from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
 import Link from "next/link";
 import { CaraTriste } from "ui/icons";
 import {
@@ -11,6 +11,13 @@ import {
   ButtonVolver,
   ButtonVolver2,
 } from "./styled";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  {
+    ssr: false,
+  }
+);
 
 export function Success() {
   return (
