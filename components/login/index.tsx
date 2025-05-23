@@ -34,7 +34,6 @@ export function Login() {
 export function LoginCode() {
   const router = useRouter();
   const { email } = useUser();
-  const { user } = useUser();
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
