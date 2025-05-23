@@ -39,8 +39,6 @@ export async function fetchApi(
     options.body = JSON.stringify(jsonBody);
   }
 
-  console.log("fetchApi -> url:", url);
-
   const res = await fetch(url, options);
   if (res.status >= 200 && res.status < 300) {
     return res.json();
