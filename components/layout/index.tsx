@@ -97,7 +97,7 @@ export function Layout({ children }) {
             <Link href={"/profile"} passHref>
               <FooterLink>Mi perfil</FooterLink>
             </Link>
-            <Link href={"/search"} passHref>
+            <Link href={"/products/search"} passHref>
               <FooterLink>Buscar</FooterLink>
             </Link>
             <Link href={"/"} passHref onClick={onClick}>
