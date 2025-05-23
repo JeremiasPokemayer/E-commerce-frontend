@@ -40,7 +40,6 @@ export async function fetchApi(
   }
 
   console.log("fetchApi -> url:", url);
-  console.log("fetchApi -> options:", options);
 
   const res = await fetch(url, options);
   if (res.status >= 200 && res.status < 300) {

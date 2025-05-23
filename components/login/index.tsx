@@ -14,7 +14,6 @@ export function Login() {
     const emailForm: string = formData.get("email") as string;
     setEmail(emailForm);
     const data = await sendCode(emailForm);
-    console.log(data);
 
     setUser({ ...user, userId: data.data.userId });
     localStorage.setItem("UserData", JSON.stringify({ email: emailForm }));
@@ -36,7 +35,6 @@ export function LoginCode() {
   const router = useRouter();
   const { email } = useUser();
   const { user } = useUser();
-  console.log(user);
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

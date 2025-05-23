@@ -157,7 +157,6 @@ export function ProductId() {
   const handleClick = async () => {
     const res = await createOrder();
     router.push(res.paymentUrl);
-    console.log(res);
   };
 
   return (
